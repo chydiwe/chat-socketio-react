@@ -1,5 +1,5 @@
 import React from "react";
-import Chat from '../containers/App'
+import Chat from './App'
 import {Link, Route} from 'react-router-dom'
 import '../login.css'
 class Loggin extends React.Component {
