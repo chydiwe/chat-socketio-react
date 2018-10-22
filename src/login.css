@@ -19,13 +19,21 @@ body {
 .loginForm{
     margin-bottom:1%;
 }
-.username {
+.userName {
     width: 90%;
     padding-top: 3%;
     color: #c0908a;
 }
 
-
+button{
+    font-size: 1.2em;
+    background: rgba(255, 189, 184, 0.24);
+    border: 1px solid #ffbdb8 ;
+    margin-left: 5px;
+}
+button:hover{
+    background: rgba(255, 189, 184, 0.87);
+}
 .name {
     height: 33%;
     border: none;

@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import * as serviceWorker from './serviceWorker';
 import Loggin from "./containers/Login";
-import { BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Chat from "./containers/App";
 
-
-ReactDOM.render(<Router><Loggin/></Router>
+const App = () =>
+    <Switch>
+        <Route exact path='/' component={Loggin}/>
+        <Route path='/chat' component={Chat}/>
+    </Switch>
+ReactDOM.render(<BrowserRouter><App/></BrowserRouter>
     , document.getElementById('root'));
 
-serviceWorker.unregister();

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-class Chat extends Component {
+export default class Chat extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,6 @@ class Chat extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
         if (localStorage.getItem('chat') === null) {
         }
         else {
@@ -32,7 +31,7 @@ class Chat extends Component {
     sendMessage(message) {
         const date = new Date()
         const chatMessages = [...this.state.chatMessages, {
-            userName: this.props.username,
+            userName: this.props.location.search.substr(10),
             text: message,
             timeSend: `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
         }]
@@ -44,7 +43,7 @@ class Chat extends Component {
         const {sendMessage} = this;
         return (
             <div className='chat'>
-                <ChatWindow chatMessages={chatMessages} userName={this.props.username}/>
+                <ChatWindow chatMessages={chatMessages} userName={this.props.location.search.substr(10)}/>
                 <SendChat sendMessage={sendMessage}/>
             </div>
         )
@@ -93,4 +92,3 @@ const ChatWindow = ({chatMessages,userName}) =>
             </div>)}
     </div>
 
-export default Chat;

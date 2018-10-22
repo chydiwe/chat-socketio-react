@@ -1,33 +1,37 @@
 import React from "react";
-import Chat from './App'
-import {Link, Route} from 'react-router-dom'
+ import {Link,} from 'react-router-dom'
 import '../login.css'
+
 class Loggin extends React.Component {
     constructor(props) {
         super(props);
+        this.setUserName = this.setUserName.bind(this)
         this.state={
             userName: ''
-        };
-
-        this.setUserName=this.setUserName.bind(this)
+        }
     }
 
-   setUserName(){
-        const name=document.getElementById('username').value
-        this.setState({userName:name});
+    setUserName(event) {
+        const name = document.getElementById('username').value
+        this.setState({userName: name});
 
-   }
+    }
+
     render() {
-        return <div className="login">
-            <form className="loginForm">
-                <div className="username">Username</div>
-                <input type="text" id="username"/>
-                <Link to='/Chat'><button onClick={this.setUserName}>SetName</button></Link>
+        return <div>
+            <div className="login">
+                <form className="loginForm">
+                    <div className="username">Username</div>
+                    <input type="text" id="username" onBlur={this.setUserName}/>
+                    <Link to={`/chat?username=${this.state.userName}`}>
+                        <button >GO CHAT</button>
+                    </Link>
 
 
-            </form>
-            <div>
-                <Route path='/Chat' render={()=><Chat username={this.state.userName}/>}/></div>
+                </form>
+
+            </div>
+
         </div>
 
     }
