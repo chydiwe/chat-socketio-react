@@ -1,13 +1,13 @@
-import {endHistory, setHistory} from '../actions/getHistory'
+import {USER_ADD_SUCCES, USER_ADD_FAILED} from '../actions/userAPI'
 
 const initialState = false;
 
-export function historyMessages(state = initialState, action) {
+export function userState(state = initialState, action) {
     switch (action.type) {
-        case setHistory : {
+        case USER_ADD_SUCCES : {
             return action.payload
         }
-        case endHistory: {
+        case USER_ADD_FAILED: {
             return action.payload
         }
         default:

@@ -36,7 +36,6 @@ export class ChatWindow extends React.Component {
 
         switch (this.props.statusUpdate) {
             case 'getMessage': {
-                console.log('srcHei',chatWindow.scrollHeight,'scrTop',chatWindow.scrollTop);
                 if (chatWindow.scrollHeight<= chatWindow.scrollTop+ 1000  )//set scroll target bottom
                     chatWindow.scrollTop = chatWindow.scrollHeight;
                 break;
@@ -64,7 +63,6 @@ export class ChatWindow extends React.Component {
         const {chatMessages, userName} = this.props;
 
         return (<div className="chatWindow" id='chatWindow'>
-            {console.log('y', this.state.currentY)}
             {(chatMessages.length === 0) ? <p>Send Message</p> : chatMessages.map((item, i) =>
                 <div key={i}
                      className={(userName === item.userName) ? "message" : "messageOther"}>

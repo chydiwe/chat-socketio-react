@@ -67,7 +67,7 @@ class Chat extends Component {
                     <ChatWindow getHistroyMessages={getHistroyMessages} chatMessages={chatMessages}
                                 historyMessages={historyMessages}
                                 userName={this.state.userName} setForChatMessageHistory={setForChatMessageHistory} statusUpdate={statusUpdate}/>
-                    <TextFields autofocus link={{init: false}} func={sendMessage}/>
+                    <TextFields autoFocus={true} func={sendMessage}/>
                 </div> : <div/>}
             </div>
         )

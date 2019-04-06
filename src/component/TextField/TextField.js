@@ -12,7 +12,7 @@ const styles = theme => ({
     button: {
         [theme.breakpoints.down('sm')]: {
             width: 90,
-            height: 40
+            height: 30
         },
         [theme.breakpoints.up('md')]: {
             height: 50
@@ -26,7 +26,7 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         [theme.breakpoints.down('sm')]: {
-            width: 240,
+            width: 190,
         },
         [theme.breakpoints.up('md')]: {
             width: 400,
@@ -61,6 +61,7 @@ class TextFields extends React.Component {
     }
 
     componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyPress);
 
     }
 
@@ -87,7 +88,7 @@ class TextFields extends React.Component {
                     className={classes.textField}
                     margin="normal"
                     variant="filled"
-                    autoFocus
+                    autoFocus={this.props.autoFocus}
                 />
                 <Button onClick={this.clearTextInput} variant="contained" color="primary" className={classes.button}>
                     Отправить

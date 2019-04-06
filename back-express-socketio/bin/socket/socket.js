@@ -7,7 +7,6 @@ function dataFormat() {
 function socketApi(socket,) {
     socket.on('message', function (msg) { //add message on chat and on db userAPI
         let time = dataFormat();
-        // Уведомляем клиента, что его сообщение успешно дошло до сервера
         socket.emit('message', {'event': 'messageSent', 'name': msg.name, 'text': msg.text, 'time': time});
         db.sendMessage(msg.name, msg.text, time).then((res) => {
                 if (res)

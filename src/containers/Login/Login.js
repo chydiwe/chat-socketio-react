@@ -30,7 +30,7 @@ class Loggin extends React.Component {
         return <div>
             <div className="login">
                 <form className="loginForm">
-                    <TextFields   func={this.setUserName} label={'Логин'} />
+                    <TextFields autoFocus={false} func={this.setUserName} label={'Логин'} />
                 </form>
 
             </div>
