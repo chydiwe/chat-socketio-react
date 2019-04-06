@@ -1,11 +1,3 @@
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: 'Karla', sans-serif;
-}
-
 .login {
     display: flex;
     align-items: center;
@@ -18,37 +10,3 @@ body {
 .loginForm{
     margin-bottom:1%;
 }
-.userName {
-    width: 90%;
-    padding-top: 3%;
-    color: #c0908a;
-}
-
-button{
-    font-size: 1.2em;
-    background: rgba(255, 189, 184, 0.24);
-    border: 1px solid #ffbdb8 ;
-    margin-left: 5px;
-}
-button:hover{
-    background: rgba(255, 189, 184, 0.87);
-}
-.name {
-    height: 33%;
-    border: none;
-    width: 90%;
-    text-align: left;
-    padding-left:5%;
-    font-size: 1.3em;
-}
-
-.login form input[type=submit] {
-    width: 100%;
-    height: 60%;
-    font-size: 1em;
-    border: none;
-    border-top:1px solid black;
-    text-align: left;
-    background: #ffbdb8;
-}
-

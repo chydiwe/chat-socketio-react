@@ -1,6 +1,27 @@
 import React from "react";
+import {withStyles} from '@material-ui/core/styles';
 
-export class ChatWindow extends React.Component {
+const styles = theme => ({
+    chatWindow: {
+        height: "60vh",
+        display: 'flex',
+        alignItems: 'center',
+        overflow:'scroll',
+        overflowX:'hidden',
+        flexFlow:'column nowrap',
+        [theme.breakpoints.down('sm')]: {
+            width: "90vw",
+        },
+        [theme.breakpoints.up('md')]: {
+            width: "60vw",
+        },
+        [theme.breakpoints.up('lg')]: {
+            width: "40vw",
+        }
+    }
+})
+
+class ChatWindow extends React.Component {
     constructor(props) {
         super(props);
         this.getHistoryOnTop = this.getHistoryOnTop.bind(this);
@@ -11,7 +32,7 @@ export class ChatWindow extends React.Component {
     }
 
     getHistoryOnTop(event) {
-        if (event.target.scrollTop === 40) {//Get history
+        if (event.target.scrollTop === 140) {//Get history
             this.setState({currentY: event.target.scrollHeight});//save pos scrollbar
             this.props.getHistroyMessages(this.props.chatMessages.length).then(() => {
                 this.props.setForChatMessageHistory();
@@ -36,7 +57,7 @@ export class ChatWindow extends React.Component {
 
         switch (this.props.statusUpdate) {
             case 'getMessage': {
-                if (chatWindow.scrollHeight<= chatWindow.scrollTop+ 1000  )//set scroll target bottom
+                if (chatWindow.scrollHeight <= chatWindow.scrollTop + 1000)//set scroll target bottom
                     chatWindow.scrollTop = chatWindow.scrollHeight;
                 break;
             }
@@ -60,15 +81,15 @@ export class ChatWindow extends React.Component {
     }
 
     render() {
-        const {chatMessages, userName} = this.props;
+        const {chatMessages, userName, classes} = this.props;
 
-        return (<div className="chatWindow" id='chatWindow'>
+        return (<div className={classes.chatWindow} id='chatWindow'>
             {(chatMessages.length === 0) ? <p>Send Message</p> : chatMessages.map((item, i) =>
                 <div key={i}
                      className={(userName === item.userName) ? "message" : "messageOther"}>
                     <div className="userName"><p>{item.userName}</p></div>
 
-                    <div className="messageUser"><p>{item.text}</p><p className="dateSend">{item.timeSend}</p></div>
+                    <div className="messageUser"><p className='dataMessage'>{item.text}</p><p className="dateSend">{item.timeSend}</p></div>
 
                 </div>)}
         </div>)
@@ -76,3 +97,4 @@ export class ChatWindow extends React.Component {
     }
 }
 
+export default withStyles(styles)(ChatWindow);

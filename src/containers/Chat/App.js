@@ -3,9 +3,24 @@ import './App.css';
 import {connectChat, disconnectChat, getMessage, sendMessageInChat} from "../../services/SocketAPI";
 import TextFields from "../../component/TextField/TextField";
 import connect from "react-redux/es/connect/connect";
-import {ChatWindow} from "../../component/ChatWindow/ChatWindow";
+import ChatWindow from "../../component/ChatWindow/ChatWindow";
 import {getHistory} from "../../entry/actions/getHistory";
+import {withStyles} from '@material-ui/core/styles';
 
+const styles = theme => ({
+    chat: {
+        background: "rgba(238, 238, 238, 0.64)",
+        [theme.breakpoints.down('sm')]: {
+            width: "90vw",
+        },
+        [theme.breakpoints.up('md')]: {
+            width: "60vw",
+        },
+        [theme.breakpoints.up('lg')]: {
+            width: "40vw",
+        }
+    }
+})
 class Chat extends Component {
     constructor(props) {
         super(props);
@@ -60,10 +75,10 @@ class Chat extends Component {
     render() {
         const {chatMessages,statusUpdate} = this.state,
             {sendMessage, setForChatMessageHistory} = this,
-            {getHistroyMessages, session, historyMessages} = this.props;
+            {classes,getHistroyMessages, session, historyMessages} = this.props;
         return (
-            <div className='chat'>
-                {typeof session.user === 'string' ? <div>
+            <div >
+                {typeof session.user === 'string' ? <div className={classes.chat}>
                     <ChatWindow getHistroyMessages={getHistroyMessages} chatMessages={chatMessages}
                                 historyMessages={historyMessages}
                                 userName={this.state.userName} setForChatMessageHistory={setForChatMessageHistory} statusUpdate={statusUpdate}/>
@@ -87,5 +102,5 @@ const mapStateToDispatch = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapStateToDispatch)(Chat)
+export default withStyles(styles)(connect(mapStateToProps, mapStateToDispatch)(Chat))
 

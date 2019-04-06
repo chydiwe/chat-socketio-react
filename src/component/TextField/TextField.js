@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 const styles = theme => ({
     container: {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexWrap: 'nowrap',
         alignItems: 'center',
     },
     button: {
@@ -26,13 +26,13 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         [theme.breakpoints.down('sm')]: {
-            width: 190,
+            width: "90vw",
         },
         [theme.breakpoints.up('md')]: {
-            width: 400,
+            width: "60vw",
         },
         [theme.breakpoints.up('lg')]: {
-            width: 640,
+            width: "50vw",
         },
         backgroundColor: theme.palette.common.white,
     },
