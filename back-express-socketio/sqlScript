@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS chat;
 use chat;
 
-CREATE TABLE IF NOT EXISTS userAPI (
+CREATE TABLE IF NOT EXISTS user(
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nickname  VARCHAR(20) NOT NULL
 );
@@ -11,6 +11,6 @@ CREATE TABLE IF NOT EXISTS message_table (
 	user_id INT NOT NULL,
     text_data TEXT NOT NULL,
 	message_date DATETIME NOT NULL,
-	FOREIGN KEY(user_id) REFERENCES userAPI(id)
+	FOREIGN KEY(user_id) REFERENCES user(id)
 );
 
