@@ -11,8 +11,7 @@ const styles = theme => ({
     },
     button: {
         [theme.breakpoints.down('sm')]: {
-            width: 90,
-            height: 30
+            height: 40
         },
         [theme.breakpoints.up('md')]: {
             height: 50
@@ -26,7 +25,7 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         [theme.breakpoints.down('sm')]: {
-            width: "90vw",
+            width: "80vw",
         },
         [theme.breakpoints.up('md')]: {
             width: "60vw",
