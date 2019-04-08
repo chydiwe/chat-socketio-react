@@ -24,7 +24,7 @@ export function logOut() {
 
 export function checkName(name, store) {
     return dispatch => {
-        fetch(`http://localhost:8001/api/user/check/${name}`).then(res => res.json().then(res => {
+        fetch(`api/user/check/${name}`).then(res => res.json().then(res => {
             if (res.status)
                 dispatch(setName(name, store));
             else
@@ -39,7 +39,7 @@ export function setName(name, store) {
     let checkRes = checkSTRName(name);
     return dispatch => {
         if (checkRes && name.length < 20 && name.length >= 5)
-            fetch(`http://localhost:8001/api/user/${name}`).then(res => res.json().then(res => {
+            fetch(`api/user/${name}`).then(res => res.json().then(res => {
                 if (res.status) {
                     dispatch({type: USER_ADD_SUCCES, payload: true})
                     saveNameInCookie(name);

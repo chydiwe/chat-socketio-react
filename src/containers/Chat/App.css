@@ -29,13 +29,13 @@ body {
   max-width: 75%;
 }
 .message {
-  align-self: flex-start;
+  align-self: flex-end;
   padding-left:2%;
 }
 
 .messageOther {
   margin-right: 5%;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .messageUser {
